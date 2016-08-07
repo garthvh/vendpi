@@ -220,7 +220,10 @@ if __name__ == '__main__':
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
 
             # Draw vector figures
+            # A Button
             draw.rectangle((0,0, ((LCD.LCDWIDTH / 2) -1), ((LCD.LCDHEIGHT /2) -1)), outline=0, fill=255)
+            # B Button
+            draw.rectangle(((LCD.LCDWIDTH / 2) + 1),0, ((LCD.LCDWIDTH / 2) -1), ((LCD.LCDHEIGHT /2) -1)), outline=0, fill=0)
             print(LCD.LCDWIDTH)
             print(LCD.LCDHEIGHT)
             #draw.rectangle((24,2,44,22), outline=0, fill=0)
