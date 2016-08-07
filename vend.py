@@ -200,16 +200,10 @@ if __name__ == '__main__':
                 nightrider(strip, Color(255,0,0), 65)
             for t in range (0, 10,1):
                 nightrider(strip, Color(0,0,255), 65)
-            # Display Image
-            disp.image(image)
-            disp.display()
             time.sleep(0.2)
-            # Clear Display
-            #disp.clear()
-            #disp.display()
             # Draw Empty rectangle on the screen
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
-            # Load Initial Text
+            # Load Initial Text after everything has run
             changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
             disp.image(image)
             disp.display()
