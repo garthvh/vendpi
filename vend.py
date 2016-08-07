@@ -180,8 +180,8 @@ if __name__ == '__main__':
     while True:
         # Flip back to white lights after the button action has run
         colorWipe(strip, Color(255, 255, 255))   # White wipe
-        
-        image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
+        # Clear Display
+        disp.clear()
         # Load Initial Text
         changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
         # Display Image
