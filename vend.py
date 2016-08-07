@@ -220,7 +220,7 @@ if __name__ == '__main__':
             # Create a drawing object
             draw = ImageDraw.Draw(image)
             # Draw Border around the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=255, fill=255)
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
@@ -228,8 +228,8 @@ if __name__ == '__main__':
             
             # Write some text.
             draw.text((0, 0),  " Alexa Powered", font=font)
-            draw.text((0, 12), "   Vending PI ", font=font)
-            draw.text((0, 24), "    Built By  ", font=font)
+            draw.text((0, 12), "  Vending PI  ", font=font)
+            draw.text((0, 24), "   Built By   ", font=font)
             draw.text((0, 36), " Garth & Jason", font=font)
             # Draw vector figures
             # A Button 2,2,22,22
