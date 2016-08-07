@@ -210,6 +210,8 @@ if __name__ == '__main__':
             
         if button_b_state == False:
             print('Button B Pressed')
+            disp.clear()
+            disp.display()
             # Create Empty Image Object
             image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
             # Create a drawing object
