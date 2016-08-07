@@ -217,9 +217,20 @@ if __name__ == '__main__':
             # Create a drawing object
             draw = ImageDraw.Draw(image)
             # Clear Screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=0, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+
+            # Draw vector figures
             draw.rectangle((24,2,44,22), outline=0, fill=0)
             draw.rectangle((70,2,44,22), outline=0, fill=0)
+
+            # Add Font
+            font = ImageFont.load_default()
+            draw.text((8,30), 'Hello World!', font=font)
+
+            # Display Image
+            disp.image(image)
+            disp.display()
+
             rainbow(strip)
             time.sleep(0.2)
             
