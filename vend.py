@@ -214,4 +214,5 @@ if __name__ == '__main__':
             
         if button_d_state == False:
             print('Button D Pressed')
+            theaterChaseRainbow(strip)
             time.sleep(0.2)
