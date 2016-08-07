@@ -195,7 +195,4 @@ if __name__ == '__main__':
                 
         input_state = GPIO.input(PUSH_BUTTON_A)
         print(input_state)
-            time.sleep(0.2)
-        if input_state == False:
-            print('Button Pressed')
-            time.sleep(0.2)
+        time.sleep(0.2)
