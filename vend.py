@@ -159,7 +159,7 @@ if __name__ == '__main__':
     
     # Draw vector figures
     draw.ellipse((2,2,22,22), outline=0, fill=255)
-    draw.rectangle((24,2,44,22), outline=0, fill=255)
+    draw.rectangle((24,2,44,22), outline=0, fill=0)
     draw.polygon([(46,22), (56,2), (66,22)], outline=0, fill=255)
     draw.line((68,22,81,2), fill=0)
     draw.line((68,2,81,22), fill=0)
@@ -202,14 +202,20 @@ if __name__ == '__main__':
         button_d_state = GPIO.input(PUSH_BUTTON_D)
         if button_a_state == False:
             print('Button A Pressed')
+            for t in range (0, 10,1):
+                nightrider(strip, Color(255,0,0), 65)
+            for t in range (0, 10,1):
+                nightrider(strip, Color(0,0,255), 65)
             time.sleep(0.2)
             
         if button_b_state == False:
             print('Button B Pressed')
+            rainbow(strip)
             time.sleep(0.2)
             
         if button_c_state == False:
             print('Button C Pressed')
+            rainbowCycle(strip)
             time.sleep(0.2)
             
         if button_d_state == False:
