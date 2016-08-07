@@ -210,6 +210,14 @@ if __name__ == '__main__':
             
         if button_b_state == False:
             print('Button B Pressed')
+            # Create Empty Image Object
+            image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
+            # Create a drawing object
+            draw = ImageDraw.Draw(image)
+            # Clear Screen
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=0, fill=255)
+            draw.rectangle((24,2,44,22), outline=0, fill=0)
+            draw.rectangle((70,2,44,22), outline=0, fill=0)
             rainbow(strip)
             time.sleep(0.2)
             
