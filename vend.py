@@ -232,7 +232,7 @@ if __name__ == '__main__':
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
-            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason"):
+            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
             
             # Write some text.
             # draw.text((0, 0),  "  Alexa & RPI ", font=font)
