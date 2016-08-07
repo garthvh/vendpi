@@ -10,8 +10,16 @@
 #
 import time
 
+# NeoPixel for LEDs
 from neopixel import *
 
+# Nokia 5110 Screen
+import Adafruit_Nokia_LCD as LCD
+import Adafruit_GPIO.SPI as SPI
+
+from PIL import Image
+from PIL import ImageFont
+from PIL import ImageDraw
 
 # LED strip configuration:
 LED_COUNT      = 12      # Number of LED pixels.
@@ -20,6 +28,13 @@ LED_FREQ_HZ    = 400000  # LED signal frequency in hertz 400khz for the TM1803
 LED_DMA        = 5       # DMA channel to use for generating signal 5 for the TM1803
 LED_BRIGHTNESS = 255     # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
+
+# Nokia Screen Configuration
+# Hardware SPI config:
+DC = 23
+RST = 24
+SPI_PORT = 0
+SPI_DEVICE = 0
 
 
 # Define functions which animate LEDs in various ways.
@@ -85,7 +100,7 @@ def theaterChaseRainbow(strip, wait_ms=50):
                 
 def nightrider(stick, color, wait_ms=70):
         """ kitt / cylon scanner """
-        for i in range(stick.numPixels() /2):
+        for i in range(stick.numPixels()):
                 stick.setPixelColor(i,color)
                 stick.setPixelColor(i-1,dimColor(color))
                 stick.show()
@@ -93,7 +108,7 @@ def nightrider(stick, color, wait_ms=70):
                 stick.setPixelColor(i,0)
                 stick.setPixelColor(i-1,0)
         # reverse the direction
-        for i in xrange((stick.numPixels()/2)-1,-1,-1):
+        for i in xrange((stick.numPixels())-1,-1,-1):
                 stick.setPixelColor(i,color)
                 stick.setPixelColor(i+1,dimColor(color))
                 stick.show()
@@ -104,10 +119,16 @@ def nightrider(stick, color, wait_ms=70):
 
 # Main program logic follows:
 if __name__ == '__main__':
+
 	# Create NeoPixel object with appropriate configuration.
 	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
 	# Intialize the library (must be called once before other functions).
 	strip.begin()
+    
+    # Start the Nokia Screen using Hardware SPI:
+    disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
+    # Initialize library.
+    disp.begin(contrast=40)
 
 	print ('Press Ctrl-C to quit.')
 	while True:
