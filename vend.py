@@ -129,9 +129,36 @@ if __name__ == '__main__':
     disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
     # Initialize library.
     disp.begin(contrast=40)
+    
+    disp.clear()
+    disp.display()
+
+    # Create Empty Image Object
+    image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
+    # Create a drawing object
+    draw = ImageDraw.Draw(image)
+    # Clear Screen
+    draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+    
+    # Draw vector figures
+    draw.ellipse((2,2,22,22), outline=0, fill=255)
+    draw.rectangle((24,2,44,22), outline=0, fill=255)
+    draw.polygon([(46,22), (56,2), (66,22)], outline=0, fill=255)
+    draw.line((68,22,81,2), fill=0)
+    draw.line((68,2,81,22), fill=0)
+    
+    # Add Font
+    font = ImageFont.load_default()
+    draw.text((8,30), 'Hello World!', font=font)
+    
+    # Display Image
+    disp.image(image)
+    disp.display()
 
     print ('Press Ctrl-C to quit.')
     while True:
+        # Testing Function for LEDs running in a loop
+    
         # Color wipe animations.
         colorWipe(strip, Color(255, 0, 0))      # Red wipe
         colorWipe(strip, Color(255, 255, 255))  # White wipe
