@@ -145,9 +145,9 @@ if __name__ == '__main__':
         rainbow(strip)
         rainbowCycle(strip)
         theaterChaseRainbow(strip)
-            # Cylon
-            for t in range (0, 10,1):
-                    nightrider(strip, Color(255,0,0), 65)
+        # Cylon
+        for t in range (0, 10,1):
+                nightrider(strip, Color(255,0,0), 65)
 
-            for t in range (0, 10,1):
-                    nightrider(strip, Color(0,0,255), 65)
+        for t in range (0, 10,1):
+                nightrider(strip, Color(0,0,255), 65)
