@@ -216,14 +216,14 @@ if __name__ == '__main__':
             image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
             # Create a drawing object
             draw = ImageDraw.Draw(image)
-            # Clear Screen
+            # Draw Border around the screen
             draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
-
+            # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -2)
             # Draw vector figures
-            # A Button 0,0,38,22
-            draw.rectangle((0,0, box_width, box_height), outline=0, fill=255)
+            # A Button 2,1,38,22
+            draw.rectangle((2,1, box_width, box_height), outline=0, fill=255)
             print(box_width)
             print(box_height)
             # B Button 40,0,38,22
