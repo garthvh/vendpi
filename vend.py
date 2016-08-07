@@ -246,6 +246,12 @@ if __name__ == '__main__':
             rainbow(strip)
             rainbowCycle(strip)
             time.sleep(0.2)
+            # Draw Empty rectangle on the screen
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            # Load Initial Text after everything has run
+            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            disp.image(image)
+            disp.display()
             
         if button_d_state == False:
             print('Button D Pressed')
@@ -262,3 +268,9 @@ if __name__ == '__main__':
             theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
             theaterChaseRainbow(strip)
             time.sleep(0.2)
+            # Draw Empty rectangle on the screen
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            # Load Initial Text after everything has run
+            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            disp.image(image)
+            disp.display()
