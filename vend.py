@@ -85,7 +85,7 @@ def theaterChaseRainbow(strip, wait_ms=50):
                 
 def nightrider(stick, color, wait_ms=70):
         """ kitt / cylon scanner """
-        for i in range(stick.numPixels()):
+        for i in range(stick.numPixels() /2):
                 stick.setPixelColor(i,color)
                 stick.setPixelColor(i-1,dimColor(color))
                 stick.show()
@@ -93,7 +93,7 @@ def nightrider(stick, color, wait_ms=70):
                 stick.setPixelColor(i,0)
                 stick.setPixelColor(i-1,0)
         # reverse the direction
-        for i in xrange(stick.numPixels()-1,-1,-1):
+        for i in xrange((stick.numPixels()/2)-1,-1,-1):
                 stick.setPixelColor(i,color)
                 stick.setPixelColor(i+1,dimColor(color))
                 stick.show()
