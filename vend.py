@@ -224,6 +224,9 @@ if __name__ == '__main__':
             # Draw vector figures
             # A Button 2,1,38,22
             draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
+            
+            # B Button 2,1,38,22
+            draw.rectangle((40,2, box_width, box_height), outline=0, fill=255)
             print(box_width)
             print(box_height)
             # B Button 40,0,38,22
