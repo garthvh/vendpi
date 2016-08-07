@@ -217,7 +217,7 @@ if __name__ == '__main__':
             # Create a drawing object
             draw = ImageDraw.Draw(image)
             # Clear Screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=0, fill=255)
 
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -2)
@@ -227,7 +227,7 @@ if __name__ == '__main__':
             print(box_width)
             print(box_height)
             # B Button 40,0,38,22
-            draw.rectangle((40,24, box_width, box_height), outline=0, fill=255)
+            #draw.rectangle((40,24, box_width, box_height), outline=0, fill=255)
             
             # C Button
             #draw.rectangle((0,((LCD.LCDWIDTH / 2) + 2), ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
