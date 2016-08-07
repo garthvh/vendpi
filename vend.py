@@ -153,7 +153,7 @@ if __name__ == '__main__':
     # Create Empty Image Object
     #image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
     # Create a drawing object
-    draw = ImageDraw.Draw(image)
+    #draw = ImageDraw.Draw(image)
     # Clear Screen
     #draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
     
