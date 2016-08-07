@@ -227,10 +227,10 @@ if __name__ == '__main__':
             
             
             # Write some text.
-            draw.text((0, 0),  " Alexa Powered", font=font)
-            draw.text((0, 12), "  Vending PI  ", font=font)
-            draw.text((0, 24), "   Built By   ", font=font)
-            draw.text((0, 36), " Garth & Jason", font=font)
+            draw.text((0, 0),  "  Alexa Powered  ", font=font)
+            draw.text((0, 12), "Trivia Vending Pi", font=font)
+            draw.text((0, 24), "    Built By     ", font=font)
+            draw.text((0, 36), "   Garth & Jason ", font=font)
             # Draw vector figures
             # A Button 2,2,22,22
             #draw.ellipse((2,2,22,22), outline=0, fill=255)
