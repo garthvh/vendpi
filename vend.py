@@ -178,7 +178,7 @@ if __name__ == '__main__':
     
         # Color wipe animations.
         #colorWipe(strip, Color(255, 0, 0))      # Red wipe
-        #colorWipe(strip, Color(255, 255, 255))  # White wipe
+        colorWipe(strip, Color(255, 255, 255))  # White wipe
         #colorWipe(strip, Color(0, 255, 0))      # Blue wipe
         #colorWipe(strip, Color(0, 0, 255))      # Green wipe
         # Theater chase animations.
@@ -197,6 +197,21 @@ if __name__ == '__main__':
         #        nightrider(strip, Color(0,0,255), 65)
                 
         button_a_state = GPIO.input(PUSH_BUTTON_A)
+        button_b_state = GPIO.input(PUSH_BUTTON_B)
+        button_c_state = GPIO.input(PUSH_BUTTON_C)
+        button_d_state = GPIO.input(PUSH_BUTTON_D)
         if button_a_state == False:
             print('Button A Pressed')
+            time.sleep(0.2)
+            
+        if button_b_state == False:
+            print('Button B Pressed')
+            time.sleep(0.2)
+            
+        if button_c_state == False:
+            print('Button C Pressed')
+            time.sleep(0.2)
+            
+        if button_d_state == False:
+            print('Button D Pressed')
             time.sleep(0.2)
