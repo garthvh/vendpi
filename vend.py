@@ -39,7 +39,7 @@ RST = 24
 SPI_PORT = 0
 SPI_DEVICE = 0
 
-# Push Buttons
+# Push Button Pin Assignments
 PUSH_BUTTON_A = 6  # GPIO pin for Push Button A (other end to GND)
 PUSH_BUTTON_B = 13 # GPIO pin for Push Button B (other end to GND)
 PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
@@ -47,7 +47,7 @@ PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 
 # Define functions to change the screen
 def changeScreenText(draw, font, line1, line2, line3, line4):
-    """ Adjust the text displayed on the screen """
+    """ Adjust the text displayed on the screen ~15 Characters per line """
     draw.text((0, 0),  line1, font=font)
     draw.text((0, 12), line2, font=font)
     draw.text((0, 24), line3, font=font)
@@ -136,6 +136,7 @@ def nightrider(stick, color, wait_ms=70):
 # Main program logic follows:
 if __name__ == '__main__':
 
+    # Stuff You Do Once
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
     # Intialize the library (must be called once before other functions).
@@ -154,19 +155,19 @@ if __name__ == '__main__':
     disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
     # Initialize library.
     disp.begin(contrast=40)
-    
-    disp.clear()
-    disp.display()
-    
     # Load default font.
     font = ImageFont.load_default()
-
     # Create Empty Image Object
-    #image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
+    image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
     # Create a drawing object
-    #draw = ImageDraw.Draw(image)
+    draw = ImageDraw.Draw(image)
     # Clear Screen
-    #draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+    draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+    # Load Initial Text
+    changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+    # Display Image
+    disp.image(image)
+    disp.display()
     
     # Draw vector figures
     #draw.ellipse((2,2,22,22), outline=0, fill=255)
@@ -174,14 +175,6 @@ if __name__ == '__main__':
     #draw.polygon([(46,22), (56,2), (66,22)], outline=0, fill=255)
     #draw.line((68,22,81,2), fill=0)
     #draw.line((68,2,81,22), fill=0)
-    
-    # Add Font
-    #font = ImageFont.load_default()
-    #draw.text((8,30), 'Hello World!', font=font)
-    
-    # Display Image
-    #disp.image(image)
-    #disp.display()
 
     print ('Press Ctrl-C to quit.')
     while True:
@@ -232,7 +225,7 @@ if __name__ == '__main__':
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
-            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Built By   ", " Garth & Jason")
             
             # Write some text.
             # draw.text((0, 0),  "  Alexa & RPI ", font=font)
