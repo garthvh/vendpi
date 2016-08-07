@@ -175,14 +175,14 @@ if __name__ == '__main__':
     #draw.polygon([(46,22), (56,2), (66,22)], outline=0, fill=255)
     #draw.line((68,22,81,2), fill=0)
     #draw.line((68,2,81,22), fill=0)
-
+    print ('Alexa Powered Pi Vending App Running')
     print ('Press Ctrl-C to quit.')
     while True:
         # Testing Function for LEDs running in a loop
     
         # Color wipe animations.
         #colorWipe(strip, Color(255, 0, 0))      # Red wipe
-        colorWipe(strip, Color(255, 255, 255))  # White wipe
+        colorWipe(strip, Color(255, 255, 255))   # White wipe
         #colorWipe(strip, Color(0, 255, 0))      # Blue wipe
         #colorWipe(strip, Color(0, 0, 255))      # Green wipe
         # Theater chase animations.
@@ -206,6 +206,10 @@ if __name__ == '__main__':
         button_d_state = GPIO.input(PUSH_BUTTON_D)
         if button_a_state == False:
             print('Button A Pressed')
+            # Draw Empty rectangle on the screen
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            # Write some text
+            changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "  Enjoy the  ", "    Cylon    ")
             for t in range (0, 10,1):
                 nightrider(strip, Color(255,0,0), 65)
             for t in range (0, 10,1):
@@ -221,17 +225,13 @@ if __name__ == '__main__':
             # Create a drawing object
             draw = ImageDraw.Draw(image)
             # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=255, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
-            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Built By   ", " Garth & Jason")
             
-            # Write some text.
-            # draw.text((0, 0),  "  Alexa & RPI ", font=font)
-            # draw.text((0, 12), "Trivia Vending", font=font)
-            # draw.text((0, 24), "   Built By   ", font=font)
-            # draw.text((0, 36), " Garth & Jason", font=font)
+            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "  Enjoy the  ", "  Rainbow  ")
+
             # Draw vector figures
             # A Button 2,2,22,22
             #draw.ellipse((2,2,22,22), outline=0, fill=255)
