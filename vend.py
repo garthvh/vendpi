@@ -169,8 +169,8 @@ if __name__ == '__main__':
     draw.text((8,30), 'Hello World!', font=font)
     
     # Display Image
-    disp.image(image)
-    disp.display()
+    #disp.image(image)
+    #disp.display()
 
     print ('Press Ctrl-C to quit.')
     while True:
@@ -241,8 +241,8 @@ if __name__ == '__main__':
             #draw.rectangle((75,2,44,22), outline=0, fill=0)
 
             # Add Font
-            font = ImageFont.load_default()
-            draw.text((8,30), 'Hello World!', font=font)
+            #font = ImageFont.load_default()
+            #draw.text((8,30), 'Hello World!', font=font)
 
             # Display Image
             disp.image(image)
