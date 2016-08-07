@@ -136,8 +136,11 @@ if __name__ == '__main__':
     # Set GPIO mode
     GPIO.setmode(GPIO.BCM)
 
-    # Pull Up for A Button Pin
+    # Setup with Pull Up for Push Button Pins
     GPIO.setup(PUSH_BUTTON_A, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(PUSH_BUTTON_B, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(PUSH_BUTTON_C, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(PUSH_BUTTON_D, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     
     # Start the Nokia Screen using Hardware SPI:
     disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
@@ -193,6 +196,7 @@ if __name__ == '__main__':
         #for t in range (0, 10,1):
         #        nightrider(strip, Color(0,0,255), 65)
                 
-        input_state = GPIO.input(PUSH_BUTTON_A)
-        print(input_state)
-        time.sleep(0.2)
+        button_a_state = GPIO.input(PUSH_BUTTON_A)
+        if button_a_state == False:
+            print('Button A Pressed')
+            time.sleep(0.2)
