@@ -209,7 +209,7 @@ if __name__ == '__main__':
             # Draw Empty rectangle on the screen
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Write some text
-            changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "  Enjoy the  ", "    Cylon    ")
+            changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "   Enjoy the  ", "     Cylon    ")
             # Display Image
             disp.image(image)
             disp.display()
@@ -221,19 +221,13 @@ if __name__ == '__main__':
             
         if button_b_state == False:
             print('Button B Pressed')
-            disp.clear()
-            disp.display()
-            # Create Empty Image Object
-            image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
-            # Create a drawing object
-            draw = ImageDraw.Draw(image)
             # Draw Empty rectangle on the screen
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
             
-            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "  Enjoy the  ", "  Rainbow  ")
+            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Enjoy the  ", "    Rainbow    ")
 
             # Draw vector figures
             # A Button 2,2,22,22
@@ -269,6 +263,13 @@ if __name__ == '__main__':
             
         if button_c_state == False:
             print('Button C Pressed')
+            # Draw Empty rectangle on the screen
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            # Write some text
+            changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "   Enjoy the  ", "   Rainbow Cycle  ")
+            # Display Image
+            disp.image(image)
+            disp.display()
             rainbowCycle(strip)
             time.sleep(0.2)
             
