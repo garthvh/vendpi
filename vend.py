@@ -113,8 +113,8 @@ if __name__ == '__main__':
 	while True:
 		# Color wipe animations.
 		colorWipe(strip, Color(255, 0, 0))      # Red wipe
-        colorWipe(strip, Color(255, 255, 255))  # White wipe
-        colorWipe(strip, Color(0, 255, 0))      # Blue wipe
+        	colorWipe(strip, Color(255, 255, 255))  # White wipe
+        	colorWipe(strip, Color(0, 255, 0))      # Blue wipe
 		colorWipe(strip, Color(0, 0, 255))      # Green wipe
 		# Theater chase animations.
 		theaterChase(strip, Color(127, 127, 127))  # White theater chase
@@ -124,9 +124,9 @@ if __name__ == '__main__':
 		rainbow(strip)
 		rainbowCycle(strip)
 		theaterChaseRainbow(strip)
-        # Cylon
-        for t in range (0, 10,1):
-                nightrider(strip, Color(255,0,0), 65)
+        	# Cylon
+        	for t in range (0, 10,1):
+                	nightrider(strip, Color(255,0,0), 65)
  
-        for t in range (0, 10,1):
-                nightrider(strip, Color(0,0,255), 65)
+        	for t in range (0, 10,1):
+                	nightrider(strip, Color(0,0,255), 65)
