@@ -211,7 +211,7 @@ if __name__ == '__main__':
         if button_b_state == False:
             print('Button B Pressed')
             # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
@@ -223,13 +223,16 @@ if __name__ == '__main__':
             # Draw Button Images
             # A Button 2,2,22,22
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
-            #print(box_width)
-            #print(box_height)
-            #print(LCD.LCDWIDTH)
-            #print(LCD.LCDHEIGHT)
-
             rainbow(strip)
+            rainbowCycle(strip)
+            theaterChaseRainbow(strip)
             time.sleep(0.2)
+            # Draw Empty rectangle on the screen
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            # Load Initial Text after everything has run
+            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            disp.image(image)
+            disp.display()
             
         if button_c_state == False:
             print('Button C Pressed')
