@@ -121,9 +121,9 @@ def nightrider(stick, color, wait_ms=70):
 if __name__ == '__main__':
 
 	# Create NeoPixel object with appropriate configuration.
-	strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
-	# Intialize the library (must be called once before other functions).
-	strip.begin()
+    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
+    # Intialize the library (must be called once before other functions).
+    strip.begin()
     
     # Start the Nokia Screen using Hardware SPI:
     disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
