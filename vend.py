@@ -174,22 +174,24 @@ if __name__ == '__main__':
     colorWipe(strip, Color(0, 255, 0))      # Blue wipe
     colorWipe(strip, Color(0, 0, 255))      # Green wipe
     
-    # Draw vector figures
-    #draw.ellipse((2,2,22,22), outline=0, fill=255)
-    #draw.rectangle((24,2,44,22), outline=0, fill=0)
-    #draw.polygon([(46,22), (56,2), (66,22)], outline=0, fill=255)
-    #draw.line((68,22,81,2), fill=0)
-    #draw.line((68,2,81,22), fill=0)
-    print ('Alexa Powered Pi Vending App Running')
+    
+    print ('Garth and Jason''s Super Fancy ')
+    print ('Alexa Powered Pi Vending App is Running')
     print ('Press Ctrl-C to quit.')
     while True:
         # Flip back to white lights after the button action has run
         colorWipe(strip, Color(255, 255, 255))   # White wipe
-                
+        # Load Initial Text
+        changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+        # Display Image
+        disp.image(image)
+        disp.display()
+        # Button States        
         button_a_state = GPIO.input(PUSH_BUTTON_A)
         button_b_state = GPIO.input(PUSH_BUTTON_B)
         button_c_state = GPIO.input(PUSH_BUTTON_C)
         button_d_state = GPIO.input(PUSH_BUTTON_D)
+        # A Button
         if button_a_state == False:
             print('Button A Pressed')
             # Draw Empty rectangle on the screen
@@ -204,7 +206,7 @@ if __name__ == '__main__':
             for t in range (0, 10,1):
                 nightrider(strip, Color(0,0,255), 65)
             time.sleep(0.2)
-            
+        # B Button    
         if button_b_state == False:
             print('Button B Pressed')
             # Draw Empty rectangle on the screen
@@ -213,18 +215,17 @@ if __name__ == '__main__':
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
             # Write some text
-            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Enjoy the  ", "    Rainbow    ")
+            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Enjoy the  ", "   Rainbows    ")
             # Display Image
             disp.image(image)
             disp.display()
-            # Draw vector figures
+            # Draw Button Images
             # A Button 2,2,22,22
-            #draw.ellipse((2,2,22,22), outline=0, fill=255)
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
-            print(box_width)
-            print(box_height)
-            print(LCD.LCDWIDTH)
-            print(LCD.LCDHEIGHT)
+            #print(box_width)
+            #print(box_height)
+            #print(LCD.LCDWIDTH)
+            #print(LCD.LCDHEIGHT)
 
             rainbow(strip)
             time.sleep(0.2)
@@ -238,6 +239,7 @@ if __name__ == '__main__':
             # Display Image
             disp.image(image)
             disp.display()
+            rainbow(strip)
             rainbowCycle(strip)
             time.sleep(0.2)
             
