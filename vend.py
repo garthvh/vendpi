@@ -223,7 +223,7 @@ if __name__ == '__main__':
             # A Button
             draw.rectangle((0,0, ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
             # C Button
-            draw.rectangle((0,((LCD.LCDHEIGHT / 2) + 2), ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
+            draw.rectangle((0,((LCD.LCDWIDTH / 2) + 2), ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
             print(LCD.LCDWIDTH)
             print(LCD.LCDHEIGHT)
             #draw.rectangle((24,2,44,22), outline=0, fill=0)
