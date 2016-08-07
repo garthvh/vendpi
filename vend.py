@@ -45,6 +45,14 @@ PUSH_BUTTON_B = 13 # GPIO pin for Push Button B (other end to GND)
 PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
 PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 
+# Define functions to change the screen
+def changeScreenText(draw, font, line1, line2, line3, line4):
+    """ Adjust the text displayed on the screen """
+    draw.text((0, 0),  line1, font=font)
+    draw.text((0, 12), line2, font=font)
+    draw.text((0, 24), line3, font=font)
+    draw.text((0, 36), line4, font=font)
+
 # Define functions which animate LEDs in various ways.
 def colorWipe(strip, color, wait_ms=50):
 	"""Wipe color across display a pixel at a time."""
@@ -219,18 +227,18 @@ if __name__ == '__main__':
             image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
             # Create a drawing object
             draw = ImageDraw.Draw(image)
-            # Draw Border around the screen
+            # Draw Empty rectangle on the screen
             draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=255, fill=255)
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
-            
+            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason"):
             
             # Write some text.
-            draw.text((0, 0),  "  Alexa & RPI ", font=font)
-            draw.text((0, 12), "Trivia Vending", font=font)
-            draw.text((0, 24), "   Built By   ", font=font)
-            draw.text((0, 36), " Garth & Jason", font=font)
+            # draw.text((0, 0),  "  Alexa & RPI ", font=font)
+            # draw.text((0, 12), "Trivia Vending", font=font)
+            # draw.text((0, 24), "   Built By   ", font=font)
+            # draw.text((0, 36), " Garth & Jason", font=font)
             # Draw vector figures
             # A Button 2,2,22,22
             #draw.ellipse((2,2,22,22), outline=0, fill=255)
