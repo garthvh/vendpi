@@ -151,22 +151,22 @@ if __name__ == '__main__':
     disp.display()
 
     # Create Empty Image Object
-    image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
+    #image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
     # Create a drawing object
     draw = ImageDraw.Draw(image)
     # Clear Screen
-    draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+    #draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
     
     # Draw vector figures
-    draw.ellipse((2,2,22,22), outline=0, fill=255)
-    draw.rectangle((24,2,44,22), outline=0, fill=0)
-    draw.polygon([(46,22), (56,2), (66,22)], outline=0, fill=255)
-    draw.line((68,22,81,2), fill=0)
-    draw.line((68,2,81,22), fill=0)
+    #draw.ellipse((2,2,22,22), outline=0, fill=255)
+    #draw.rectangle((24,2,44,22), outline=0, fill=0)
+    #draw.polygon([(46,22), (56,2), (66,22)], outline=0, fill=255)
+    #draw.line((68,22,81,2), fill=0)
+    #draw.line((68,2,81,22), fill=0)
     
     # Add Font
-    font = ImageFont.load_default()
-    draw.text((8,30), 'Hello World!', font=font)
+    #font = ImageFont.load_default()
+    #draw.text((8,30), 'Hello World!', font=font)
     
     # Display Image
     #disp.image(image)
