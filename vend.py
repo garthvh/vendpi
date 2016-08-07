@@ -182,6 +182,7 @@ if __name__ == '__main__':
         colorWipe(strip, Color(255, 255, 255))   # White wipe
         # Clear Display
         disp.clear()
+        disp.display()
         # Draw Empty rectangle on the screen
         draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
         # Load Initial Text
