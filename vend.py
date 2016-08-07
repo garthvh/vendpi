@@ -227,7 +227,7 @@ if __name__ == '__main__':
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
             
             # B Button 2,1,38,22
-            draw.ellipse((40,20,22,22), outline=0, fill=255)
+            draw.ellipse((24,2,22,22), outline=0, fill=255)
             #draw.rectangle((42, 20, box_width, box_height), outline=0, fill=0)
             print(box_width)
             print(box_height)
