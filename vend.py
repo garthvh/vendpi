@@ -210,6 +210,9 @@ if __name__ == '__main__':
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "  Enjoy the  ", "    Cylon    ")
+            # Display Image
+            disp.image(image)
+            disp.display()
             for t in range (0, 10,1):
                 nightrider(strip, Color(255,0,0), 65)
             for t in range (0, 10,1):
