@@ -266,7 +266,7 @@ if __name__ == '__main__':
             # Draw Empty rectangle on the screen
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Write some text
-            changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "   Enjoy the  ", "   Rainbow Cycle  ")
+            changeScreenText(draw, font, "  You Pressed ", "   Button C   ", "   Enjoy the  ", " Rainbow Cycle  ")
             # Display Image
             disp.image(image)
             disp.display()
@@ -275,5 +275,12 @@ if __name__ == '__main__':
             
         if button_d_state == False:
             print('Button D Pressed')
+            # Draw Empty rectangle on the screen
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            # Write some text
+            changeScreenText(draw, font, "  You Pressed ", "   Button D   ", "Enjoy the Rnbow", "Theater Chase  ")
+            # Display Image
+            disp.image(image)
+            disp.display()
             theaterChaseRainbow(strip)
             time.sleep(0.2)
