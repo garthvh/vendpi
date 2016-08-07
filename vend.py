@@ -190,7 +190,7 @@ if __name__ == '__main__':
         if button_a_state == False:
             print('Button A Pressed')
             # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "   Enjoy the  ", "     Cylon    ")
             # Display Image
