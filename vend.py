@@ -226,7 +226,7 @@ if __name__ == '__main__':
             draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
             
             # B Button 2,1,38,22
-            draw.rectangle((22, 2, box_width, box_height), outline=0, fill=255)
+            draw.rectangle((42, 2, box_width, box_height), outline=0, fill=0)
             print(box_width)
             print(box_height)
             # B Button 40,0,38,22
