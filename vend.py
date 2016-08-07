@@ -21,6 +21,9 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
+# GPIO For Push Buttons
+import RPi.GPIO as GPIO
+
 # LED strip configuration:
 LED_COUNT      = 12      # Number of LED pixels.
 LED_PIN        = 18      # GPIO pin connected to the pixels (must support PWM).
@@ -36,6 +39,11 @@ RST = 24
 SPI_PORT = 0
 SPI_DEVICE = 0
 
+# Push Buttons
+PUSH_BUTTON_A = 6  # GPIO pin for Push Button A (other end to GND)
+PUSH_BUTTON_B = 13 # GPIO pin for Push Button B (other end to GND)
+PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
+PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 
 # Define functions which animate LEDs in various ways.
 def colorWipe(strip, color, wait_ms=50):
@@ -125,6 +133,12 @@ if __name__ == '__main__':
     # Intialize the library (must be called once before other functions).
     strip.begin()
     
+    # Set GPIO mode
+    GPIO.setmode(GPIO.BCM)
+
+    # Pull Up for A Button Pin
+    GPIO.setup(PUSH_BUTTON_A, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    
     # Start the Nokia Screen using Hardware SPI:
     disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
     # Initialize library.
@@ -178,3 +192,8 @@ if __name__ == '__main__':
 
         for t in range (0, 10,1):
                 nightrider(strip, Color(0,0,255), 65)
+                
+        input_state = GPIO.input(PUSH_BUTTON_A)
+            if input_state == False:
+                print('Button Pressed')
+                time.sleep(0.2)
