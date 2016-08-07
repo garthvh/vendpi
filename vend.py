@@ -224,7 +224,7 @@ if __name__ == '__main__':
             draw.rectangle((0,0,38,22), outline=0, fill=255)
             
             # B Button
-            draw.rectangle((0,40,38,22), outline=0, fill=255)
+            draw.rectangle((40,0,38,22), outline=0, fill=255)
             #draw.rectangle((0,0, ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
             # C Button
             #draw.rectangle((0,((LCD.LCDWIDTH / 2) + 2), ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
