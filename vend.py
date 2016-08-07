@@ -219,13 +219,15 @@ if __name__ == '__main__':
             # Clear Screen
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
 
+            box_width = ((LCD.LCDWIDTH / 2) -4)
+            box_height = ((LCD.LCDHEIGHT / 2) -2)
             # Draw vector figures
             # A Button
-            draw.rectangle((0,0,38,20), outline=0, fill=255)
+            #draw.rectangle((0,0,38,20), outline=0, fill=255)
             
             # B Button
-            draw.rectangle((22,0,38,20), outline=0, fill=255)
-            #draw.rectangle((0,0, ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
+            #draw.rectangle((22,0,38,20), outline=0, fill=255)
+            draw.rectangle((0,0, box_width, box_height), outline=0, fill=255)
             # C Button
             #draw.rectangle((0,((LCD.LCDWIDTH / 2) + 2), ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
             print(LCD.LCDWIDTH)
