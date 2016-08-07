@@ -217,7 +217,7 @@ if __name__ == '__main__':
             # Create a drawing object
             draw = ImageDraw.Draw(image)
             # Clear Screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=0, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
 
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -2)
