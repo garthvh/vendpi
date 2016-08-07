@@ -222,11 +222,11 @@ if __name__ == '__main__':
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
             # Draw vector figures
-            # A Button 2,1,38,22
+            # A Button 2,2,38,22
             draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
             
             # B Button 2,1,38,22
-            draw.rectangle((40, 22, box_width, box_height), outline=0, fill=255)
+            draw.rectangle((22, 2, box_width, box_height), outline=0, fill=255)
             print(box_width)
             print(box_height)
             # B Button 40,0,38,22
