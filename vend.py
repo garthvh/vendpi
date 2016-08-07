@@ -227,7 +227,7 @@ if __name__ == '__main__':
             
             
             # Write some text.
-            draw.text((0, 0), "1XXXXX", font=font)
+            draw.text((0, 0), "Garth & Jason's Alexa Vending Machine", font=font)
             draw.text((0, 12), "2XXXXX", font=font)
             draw.text((0, 24), "3XXXXX", font=font)
             draw.text((0, 36), "4XXXXX", font=font)
