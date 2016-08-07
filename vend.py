@@ -149,6 +149,9 @@ if __name__ == '__main__':
     
     disp.clear()
     disp.display()
+    
+    # Load default font.
+    font = ImageFont.load_default()
 
     # Create Empty Image Object
     #image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
@@ -221,13 +224,20 @@ if __name__ == '__main__':
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
+            
+            
+            # Write some text.
+            draw.text((0, 0), "1XXXXX", font=self.font)
+            draw.text((0, 12), "2XXXXX", font=self.font)
+            draw.text((0, 24), "3XXXXX", font=self.font)
+            draw.text((0, 36), "4XXXXX", font=self.font)
             # Draw vector figures
             # A Button 2,2,22,22
-            draw.ellipse((2,2,22,22), outline=0, fill=255)
+            #draw.ellipse((2,2,22,22), outline=0, fill=255)
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
             
             # B Button 2,1,38,22
-            draw.ellipse((24,2,22,22), outline=0, fill=255)
+            #draw.ellipse((24,2,22,22), outline=0, fill=255)
             #draw.rectangle((42, 20, box_width, box_height), outline=0, fill=0)
             print(box_width)
             print(box_height)
