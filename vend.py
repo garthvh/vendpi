@@ -221,7 +221,7 @@ if __name__ == '__main__':
 
             # Draw vector figures
             draw.rectangle((24,2,44,22), outline=0, fill=0)
-            draw.rectangle((70,2,44,22), outline=0, fill=0)
+            draw.rectangle((75,2,44,22), outline=0, fill=0)
 
             # Add Font
             font = ImageFont.load_default()
