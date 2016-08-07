@@ -168,6 +168,11 @@ if __name__ == '__main__':
     # Display Image
     disp.image(image)
     disp.display()
+    # Flash Some Colors on the LEDs
+    colorWipe(strip, Color(255, 0, 0))      # Red wipe
+    colorWipe(strip, Color(255, 255, 255))  # White wipe
+    colorWipe(strip, Color(0, 255, 0))      # Blue wipe
+    colorWipe(strip, Color(0, 0, 255))      # Green wipe
     
     # Draw vector figures
     #draw.ellipse((2,2,22,22), outline=0, fill=255)
@@ -178,27 +183,8 @@ if __name__ == '__main__':
     print ('Alexa Powered Pi Vending App Running')
     print ('Press Ctrl-C to quit.')
     while True:
-        # Testing Function for LEDs running in a loop
-    
-        # Color wipe animations.
-        #colorWipe(strip, Color(255, 0, 0))      # Red wipe
+        # Flip back to white lights after the button action has run
         colorWipe(strip, Color(255, 255, 255))   # White wipe
-        #colorWipe(strip, Color(0, 255, 0))      # Blue wipe
-        #colorWipe(strip, Color(0, 0, 255))      # Green wipe
-        # Theater chase animations.
-        #theaterChase(strip, Color(127, 127, 127))  # White theater chase
-        #theaterChase(strip, Color(127,   0,   0))  # Red theater chase
-        #theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
-        # Rainbow animations.
-        #rainbow(strip)
-        #rainbowCycle(strip)
-        #theaterChaseRainbow(strip)
-        # Cylon
-        #for t in range (0, 10,1):
-        #        nightrider(strip, Color(255,0,0), 65)
-
-        #for t in range (0, 10,1):
-        #        nightrider(strip, Color(0,0,255), 65)
                 
         button_a_state = GPIO.input(PUSH_BUTTON_A)
         button_b_state = GPIO.input(PUSH_BUTTON_B)
@@ -226,37 +212,19 @@ if __name__ == '__main__':
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
-            
+            # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Enjoy the  ", "    Rainbow    ")
-
+            # Display Image
+            disp.image(image)
+            disp.display()
             # Draw vector figures
             # A Button 2,2,22,22
             #draw.ellipse((2,2,22,22), outline=0, fill=255)
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
-            
-            # B Button 2,1,38,22
-            #draw.ellipse((24,2,22,22), outline=0, fill=255)
-            #draw.rectangle((42, 20, box_width, box_height), outline=0, fill=0)
             print(box_width)
             print(box_height)
-            # B Button 40,0,38,22
-            #draw.rectangle((40,24, box_width, box_height), outline=0, fill=255)
-            
-            # C Button
-            #draw.rectangle((0,((LCD.LCDWIDTH / 2) + 2), ((LCD.LCDWIDTH / 2) -4), ((LCD.LCDHEIGHT /2) -4)), outline=0, fill=255)
             print(LCD.LCDWIDTH)
             print(LCD.LCDHEIGHT)
-
-            #draw.rectangle((24,2,44,22), outline=0, fill=0)
-            #draw.rectangle((75,2,44,22), outline=0, fill=0)
-
-            # Add Font
-            #font = ImageFont.load_default()
-            #draw.text((8,30), 'Hello World!', font=font)
-
-            # Display Image
-            disp.image(image)
-            disp.display()
 
             rainbow(strip)
             time.sleep(0.2)
@@ -278,9 +246,13 @@ if __name__ == '__main__':
             # Draw Empty rectangle on the screen
             draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Write some text
-            changeScreenText(draw, font, "  You Pressed ", "   Button D   ", "Enjoy the Rnbow", "Theater Chase  ")
+            changeScreenText(draw, font, "  You Pressed ", "   Button D   ", "Enjoy the RBW", " Theater Chase  ")
             # Display Image
             disp.image(image)
             disp.display()
+            # Theater chase animations.
+            theaterChase(strip, Color(127, 127, 127))  # White theater chase
+            theaterChase(strip, Color(127,   0,   0))  # Red theater chase
+            theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
             theaterChaseRainbow(strip)
             time.sleep(0.2)
