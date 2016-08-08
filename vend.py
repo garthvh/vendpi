@@ -232,7 +232,7 @@ if __name__ == '__main__':
         if button_c_state == False:
             print('Button C Pressed')
             # Write some text
-            changeScreenText(draw, font, "YOU PRESSED", "BUTTON C", "ENJOY THE", "RAINBOW CYCLE")
+            changeScreenText(draw, font, "YOU PRESSED", "BUTTON C", "ENJOY THE", "RBW CYCLE")
             rainbow(strip)
             rainbowCycle(strip)
             time.sleep(0.2)
@@ -242,7 +242,7 @@ if __name__ == '__main__':
         if button_d_state == False:
             print('Button D Pressed')
             # Write some text
-            changeScreenText(draw, font, "YOU PRESSED", "BUTTON D", "ENJOY THE RBW", " THEATER CHASE")
+            changeScreenText(draw, font, "YOU PRESSED", "BUTTON D", "ENJOY THE RBW", "THEATER CHASE")
             # Theater chase animations.
             theaterChase(strip, Color(127,   0,   0))  # Red theater chase
             theaterChase(strip, Color(127, 127, 127))  # White theater chase
