@@ -182,7 +182,7 @@ if __name__ == '__main__':
     # Create a drawing object
     draw = ImageDraw.Draw(image)
     # Load Initial Text
-    changeScreenText(draw, font, "ALEXA & PI", "Voice Trivia", " VENDING", " MACHINE")
+    changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
     # Flash Some Colors on the LEDs
     colorWipe(strip, Color(255, 0, 0))      # Red wipe
     colorWipe(strip, Color(255, 255, 255))  # White wipe
