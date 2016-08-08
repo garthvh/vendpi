@@ -176,7 +176,7 @@ if __name__ == '__main__':
     #font = ImageFont.load_default()
     
     # Some nice fonts to try: http://www.dafont.com/bitmap.php	
-    font = ImageFont.truetype('fonts/DroidSansMono.ttf', 11)
+    font = ImageFont.truetype('fonts/DroidSansMono.ttf', 13)
     # Create Empty Image Object
     image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
     # Create a drawing object
