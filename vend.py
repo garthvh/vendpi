@@ -49,13 +49,22 @@ PUSH_BUTTON_B = 13 # GPIO pin for Push Button B (other end to GND)
 PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
 PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 
+LCD_WIDTH = 84;
+LCD_HEIGHT =48;
+
 # Define functions to change the screen
 def changeScreenText(draw, font, line1, line2, line3, line4):
     """ Adjust the text displayed on the screen ~15 Characters per line """
+    # Draw Empty rectangle on the screen
+    draw.rectangle((0,0,LCD_WIDTH,LCD_HEIGHT), outline=255, fill=255)
+    # Write the text out for each line
     draw.text((0, 0),  line1, font=font)
     draw.text((0, 12), line2, font=font)
     draw.text((0, 24), line3, font=font)
     draw.text((0, 36), line4, font=font)
+    # Display Image
+    disp.image(image)
+    disp.display()
 
 # Define functions which animate LEDs in various ways.
 def colorWipe(strip, color, wait_ms=50):
@@ -155,6 +164,10 @@ if __name__ == '__main__':
     GPIO.setup(PUSH_BUTTON_C, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(PUSH_BUTTON_D, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     
+    # Width and Height Variables
+    LCD_WIDTH = LCD.LCDWIDTH
+    LCD_HEIGHT = LCD.LCDHEIGHT
+    
     # Start the Nokia Screen using Hardware SPI:
     disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
     # Initialize library.
@@ -162,16 +175,11 @@ if __name__ == '__main__':
     # Load default font.
     font = ImageFont.load_default()
     # Create Empty Image Object
-    image = Image.new('1', (LCD.LCDWIDTH, LCD.LCDHEIGHT))
+    image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
     # Create a drawing object
     draw = ImageDraw.Draw(image)
-    # Clear Screen
-    draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
     # Load Initial Text
     changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
-    # Display Image
-    disp.image(image)
-    disp.display()
     # Flash Some Colors on the LEDs
     colorWipe(strip, Color(255, 0, 0))      # Red wipe
     colorWipe(strip, Color(255, 255, 255))  # White wipe
@@ -179,7 +187,7 @@ if __name__ == '__main__':
     colorWipe(strip, Color(0, 0, 255))      # Green wipe
     
     
-    print ('Garth and Jason''s Super Fancy ')
+    print ('Garth and Jason'"'s Super Fancy ')
     print ('Alexa Powered Pi Vending App is Running')
     print ('Press Ctrl-C to quit.')
     while True:
@@ -194,37 +202,24 @@ if __name__ == '__main__':
         # A Button
         if button_a_state == False:
             print('Button A Pressed')
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "   Enjoy the  ", "     Cylon    ")
-            # Display Image
-            disp.image(image)
-            disp.display()
+            # Night Rider / Cylon
             for t in range (0, 10,1):
                 nightrider(strip, Color(255,0,0), 65)
             for t in range (0, 10,1):
                 nightrider(strip, Color(0,0,255), 65)
             time.sleep(0.2)
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
-            disp.image(image)
-            disp.display()
         # B Button    
         if button_b_state == False:
             print('Button B Pressed')
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
             # Button Box Size Variables
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Enjoy the  ", "   Rainbows    ")
-            # Display Image
-            disp.image(image)
-            disp.display()
             # Draw Button Images
             # A Button 2,2,22,22
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
@@ -232,50 +227,28 @@ if __name__ == '__main__':
             rainbowCycle(strip)
             theaterChaseRainbow(strip)
             time.sleep(0.2)
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
-            disp.image(image)
-            disp.display()
             
         if button_c_state == False:
             print('Button C Pressed')
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button C   ", "   Enjoy the  ", " Rainbow Cycle  ")
-            # Display Image
-            disp.image(image)
-            disp.display()
             rainbow(strip)
             rainbowCycle(strip)
             time.sleep(0.2)
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
-            disp.image(image)
-            disp.display()
             
         if button_d_state == False:
             print('Button D Pressed')
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH -1,LCD.LCDHEIGHT -1), outline=0, fill=255)
             # Write some text
-            changeScreenText(draw, font, "  You Pressed ", "   Button D   ", "Enjoy the RBW", " Theater Chase  ")
-            # Display Image
-            disp.image(image)
-            disp.display()
+            changeScreenText(draw, font, "  You Pressed ", "   Button D   ", " Enjoy the RBW", " Theater Chase  ")
             # Theater chase animations.
             theaterChase(strip, Color(127, 127, 127))  # White theater chase
             theaterChase(strip, Color(127,   0,   0))  # Red theater chase
             theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
             theaterChaseRainbow(strip)
             time.sleep(0.2)
-            # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
-            disp.image(image)
-            disp.display()
