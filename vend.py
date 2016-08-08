@@ -182,7 +182,7 @@ if __name__ == '__main__':
     # Create a drawing object
     draw = ImageDraw.Draw(image)
     # Load Initial Text
-    changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
+    changeScreenText(draw, font, " ALEXA & PI", "   TRIVIA", "   VENDING", "   MACHINE")
     # Flash Some Colors on the LEDs
     colorWipe(strip, Color(255, 0, 0))      # Red wipe
     colorWipe(strip, Color(255, 255, 255))  # White wipe
@@ -214,7 +214,7 @@ if __name__ == '__main__':
                 nightrider(strip, Color(0,0,255), 65)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
+            changeScreenText(draw, font, " ALEXA & PI", "   TRIVIA", "   VENDING", "   MACHINE")
         # B Button    
         if button_b_state == False:
             print('Button B Pressed')
@@ -231,7 +231,7 @@ if __name__ == '__main__':
             theaterChaseRainbow(strip)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
+            changeScreenText(draw, font, " ALEXA & PI", "   TRIVIA", "   VENDING", "   MACHINE")
         # C Button      
         if button_c_state == False:
             print('Button C Pressed')
@@ -241,7 +241,7 @@ if __name__ == '__main__':
             rainbowCycle(strip)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
+            changeScreenText(draw, font, " ALEXA & PI", "   TRIVIA", "   VENDING", "   MACHINE")
         # D Button      
         if button_d_state == False:
             print('Button D Pressed')
@@ -254,4 +254,4 @@ if __name__ == '__main__':
             theaterChaseRainbow(strip)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
+            changeScreenText(draw, font, " ALEXA & PI", "   TRIVIA", "   VENDING", "   MACHINE")
