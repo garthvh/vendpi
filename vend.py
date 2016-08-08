@@ -50,9 +50,9 @@ PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
 PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 
 LCD_WIDTH = 84;
-LCD_HEIGHT =48;
+LCD_HEIGHT = 48;
 
-# Define functions to change the screen
+# Define functions to change the display on screen
 def changeScreenText(draw, font, line1, line2, line3, line4):
     """ Adjust the text displayed on the screen ~15 Characters per line """
     # Draw Empty rectangle on the screen
@@ -173,7 +173,10 @@ if __name__ == '__main__':
     # Initialize library.
     disp.begin(contrast=40)
     # Load default font.
-    font = ImageFont.load_default()
+    #font = ImageFont.load_default()
+    
+    # Some nice fonts to try: http://www.dafont.com/bitmap.php	
+    font = ImageFont.truetype('fonts/8-Bit Madness.ttf', 16)
     # Create Empty Image Object
     image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
     # Create a drawing object
@@ -187,8 +190,8 @@ if __name__ == '__main__':
     colorWipe(strip, Color(0, 0, 255))      # Green wipe
     
     
-    print ('Garth and Jasons Super Fancy ')
-    print ('Alexa Powered Pi Vending App is Running')
+    print ('Garth and Jason made this super fancy ')
+    print ('Alexa Powered Pi Vending App that is running')
     print ('Press Ctrl-C to quit.')
     while True:
         # Flip back to white lights after the button action has run
@@ -229,7 +232,7 @@ if __name__ == '__main__':
             time.sleep(0.2)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
-            
+        # C Button      
         if button_c_state == False:
             print('Button C Pressed')
             # Write some text
@@ -239,14 +242,14 @@ if __name__ == '__main__':
             time.sleep(0.2)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
-            
+        # D Button      
         if button_d_state == False:
             print('Button D Pressed')
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button D   ", " Enjoy the RBW", " Theater Chase  ")
             # Theater chase animations.
-            theaterChase(strip, Color(127, 127, 127))  # White theater chase
             theaterChase(strip, Color(127,   0,   0))  # Red theater chase
+            theaterChase(strip, Color(127, 127, 127))  # White theater chase
             theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
             theaterChaseRainbow(strip)
             time.sleep(0.2)
