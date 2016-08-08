@@ -1,7 +1,12 @@
 # VendPi Raspberry Pi Vending Machine
-# Author: Garth Vander Houwen (gartvh@yahoo.com)
+# Authors: Garth Vander Houwen (@garthvh), Jason Widrig (@jasonwidrig)
 #
-# Hardware: Raspberry Pi B+, 12 TM1803 RGB LEDs, Nokia 5110 Screen, 4 16mm Push Buttons, 4 Parallax Continuous Rotation Servos
+# Hardware: Venduino Laser Cut Case http://www.retrobuiltgames.com/diy-kits-shop/venduino/
+#           Raspberry Pi B+, 
+#           12 TM1803 RGB LEDs
+#           Nokia 5110 Screen 84x48
+#           4 16mm Red Push Buttons
+#           4 Parallax Continuous Rotation Servos
 #
 # Built with with code from 
 # TM1803 LEDs https://github.com/jgarff/rpi_ws281x
@@ -237,7 +242,7 @@ if __name__ == '__main__':
         if button_c_state == False:
             print('Button C Pressed')
             # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=0, fill=255)
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button C   ", "   Enjoy the  ", " Rainbow Cycle  ")
             # Display Image
@@ -256,7 +261,7 @@ if __name__ == '__main__':
         if button_d_state == False:
             print('Button D Pressed')
             # Draw Empty rectangle on the screen
-            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=255, fill=255)
+            draw.rectangle((0,0,LCD.LCDWIDTH,LCD.LCDHEIGHT), outline=0, fill=255)
             # Write some text
             changeScreenText(draw, font, "  You Pressed ", "   Button D   ", "Enjoy the RBW", " Theater Chase  ")
             # Display Image
