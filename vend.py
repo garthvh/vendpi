@@ -176,7 +176,7 @@ if __name__ == '__main__':
     #font = ImageFont.load_default()
     
     # Some nice fonts to try: http://www.dafont.com/bitmap.php	
-    font = ImageFont.truetype('fonts/DroidSansMono.ttf', 13)
+    font = ImageFont.truetype('fonts/DroidSansMono.ttf', 12)
     # Create Empty Image Object
     image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
     # Create a drawing object
@@ -206,7 +206,7 @@ if __name__ == '__main__':
         if button_a_state == False:
             print('Button A Pressed')
             # Write some text
-            changeScreenText(draw, font, "  You Pressed ", "   Button A   ", "   Enjoy the  ", "     Cylon    ")
+            changeScreenText(draw, font, "You Pressed", "Button A", "Enjoy the", "Cylon")
             # Night Rider / Cylon
             for t in range (0, 10,1):
                 nightrider(strip, Color(255,0,0), 65)
@@ -214,7 +214,7 @@ if __name__ == '__main__':
                 nightrider(strip, Color(0,0,255), 65)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
         # B Button    
         if button_b_state == False:
             print('Button B Pressed')
@@ -222,7 +222,7 @@ if __name__ == '__main__':
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
             # Write some text
-            changeScreenText(draw, font, "  You Pressed ", "   Button B   ", "   Enjoy the  ", "   Rainbows    ")
+            changeScreenText(draw, font, "You Pressed", "Button B", "Enjoy the", " Rainbows")
             # Draw Button Images
             # A Button 2,2,22,22
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
@@ -231,7 +231,7 @@ if __name__ == '__main__':
             theaterChaseRainbow(strip)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
         # C Button      
         if button_c_state == False:
             print('Button C Pressed')
@@ -241,7 +241,7 @@ if __name__ == '__main__':
             rainbowCycle(strip)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
         # D Button      
         if button_d_state == False:
             print('Button D Pressed')
@@ -254,4 +254,4 @@ if __name__ == '__main__':
             theaterChaseRainbow(strip)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
+            changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
