@@ -176,13 +176,13 @@ if __name__ == '__main__':
     #font = ImageFont.load_default()
     
     # Some nice fonts to try: http://www.dafont.com/bitmap.php	
-    font = ImageFont.truetype('fonts/DroidSansMono.ttf', 13)
+    font = ImageFont.truetype('fonts/DroidSansMono.ttf', 14)
     # Create Empty Image Object
     image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
     # Create a drawing object
     draw = ImageDraw.Draw(image)
     # Load Initial Text
-    changeScreenText(draw, font, " ALEXA & PI ", "   TRIVIA", "  VENDING", "  MACHINE")
+    changeScreenText(draw, font, "ALEXA & PI", "  TRIVIA", "  VENDING", "  MACHINE")
     # Flash Some Colors on the LEDs
     colorWipe(strip, Color(255, 0, 0))      # Red wipe
     colorWipe(strip, Color(255, 255, 255))  # White wipe
