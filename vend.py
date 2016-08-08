@@ -56,7 +56,7 @@ PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 
 # Define functions to change the display on screen
 def changeScreenText(draw, font, line1, line2, line3, line4):
-    """ Adjust the text displayed on the screen ~12 Characters per line """
+    """ Adjust the text displayed on the Nokia 5110 screen ~12 Characters per line """
     # Draw Empty rectangle on the screen
     draw.rectangle((0, 0, LCD_WIDTH, LCD_HEIGHT), outline=255, fill=255)
     # Write the text out for each line
