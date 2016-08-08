@@ -187,7 +187,7 @@ if __name__ == '__main__':
     colorWipe(strip, Color(0, 0, 255))      # Green wipe
     
     
-    print ('Garth and Jason'"'s Super Fancy ')
+    print ('Garth and Jasons Super Fancy ')
     print ('Alexa Powered Pi Vending App is Running')
     print ('Press Ctrl-C to quit.')
     while True:
