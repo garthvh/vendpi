@@ -231,7 +231,7 @@ if __name__ == '__main__':
             theaterChaseRainbow(strip)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, " ALEXA & PI", "   TRIVIA", "   VENDING", "   MACHINE")
+            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
         # C Button      
         if button_c_state == False:
             print('Button C Pressed')
