@@ -214,7 +214,7 @@ if __name__ == '__main__':
                 nightrider(strip, Color(0,0,255), 65)
             time.sleep(0.2)
             # Load Initial Text after everything has run
-            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
+            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "  VENDING", "  MACHINE")
         # B Button    
         if button_b_state == False:
             print('Button B Pressed')
@@ -222,7 +222,7 @@ if __name__ == '__main__':
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
             # Write some text
-            changeScreenText(draw, font, "You Pressed", "Button B", "Enjoy the", " Rainbows")
+            changeScreenText(draw, font, "YOU PRESSED", " BUTTON B", " ENJOY THE", "  RAINBOWS")
             # Draw Button Images
             # A Button 2,2,22,22
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
