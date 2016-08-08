@@ -206,7 +206,7 @@ if __name__ == '__main__':
         if button_a_state == False:
             print('Button A Pressed')
             # Write some text
-            changeScreenText(draw, font, " YOU PRESSED", "  BUTTON A", "  ENJOY THE", "   CYLON")
+            changeScreenText(draw, font, "YOU PRESSED", "  BUTTON A", " ENJOY THE", "   CYLON")
             # Night Rider / Cylon
             for t in range (0, 10,1):
                 nightrider(strip, Color(255,0,0), 65)
@@ -222,7 +222,7 @@ if __name__ == '__main__':
             box_width = ((LCD.LCDWIDTH / 2) -4)
             box_height = ((LCD.LCDHEIGHT / 2) -4)
             # Write some text
-            changeScreenText(draw, font, " YOU PRESSED", "  BUTTON B", "  ENJOY THE", "  RAINBOWS")
+            changeScreenText(draw, font, "YOU PRESSED", "  BUTTON B", " ENJOY THE", "  RAINBOWS")
             # Draw Button Images
             # A Button 2,2,22,22
             #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
@@ -236,7 +236,7 @@ if __name__ == '__main__':
         if button_c_state == False:
             print('Button C Pressed')
             # Write some text
-            changeScreenText(draw, font, " YOU PRESSED", "  BUTTON C", "  ENJOY THE", "RAINBOW CYCLE")
+            changeScreenText(draw, font, "YOU PRESSED", "  BUTTON C", " ENJOY THE", "RAINBOW CYCLE")
             rainbow(strip)
             rainbowCycle(strip)
             time.sleep(0.2)
@@ -246,7 +246,7 @@ if __name__ == '__main__':
         if button_d_state == False:
             print('Button D Pressed')
             # Write some text
-            changeScreenText(draw, font, " YOU PRESSED", "  BUTTON D", " ENJOY THE RBW", " THEATER CHASE")
+            changeScreenText(draw, font, "YOU PRESSED", "  BUTTON D", "ENJOY THE RBW", " THEATER CHASE")
             # Theater chase animations.
             theaterChase(strip, Color(127,   0,   0))  # Red theater chase
             theaterChase(strip, Color(127, 127, 127))  # White theater chase
