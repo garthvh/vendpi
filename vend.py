@@ -173,16 +173,16 @@ if __name__ == '__main__':
     # Initialize library.
     disp.begin(contrast=40)
     # Load default font.
-    #font = ImageFont.load_default()
+    font = ImageFont.load_default()
     
     # Some nice fonts to try: http://www.dafont.com/bitmap.php	
-    font = ImageFont.truetype('fonts/modern_lcd-7.ttf', 12)
+    #font = ImageFont.truetype('fonts/VCR_OSD_MONO_1.001.ttf', 14)
     # Create Empty Image Object
     image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
     # Create a drawing object
     draw = ImageDraw.Draw(image)
     # Load Initial Text
-    changeScreenText(draw, font, "hackster.io", "Alexa Trivia", "Raspberry Pi", "Vending")
+    changeScreenText(draw, font, "  Alexa & RPI ", "Trivia Vending", "   Built By   ", " Garth & Jason")
     # Flash Some Colors on the LEDs
     colorWipe(strip, Color(255, 0, 0))      # Red wipe
     colorWipe(strip, Color(255, 255, 255))  # White wipe
