@@ -14,6 +14,8 @@
 # TM1803 LEDs https://github.com/jgarff/rpi_ws281x
 #
 #
+
+from __future__ import division
 import time
 
 # NeoPixel for LEDs
@@ -29,6 +31,12 @@ from PIL import ImageDraw
 
 # GPIO For Push Buttons
 import RPi.GPIO as GPIO
+
+# Import the PCA9685 module for servos
+import Adafruit_PCA9685
+
+# Configure servo pulse length
+servo_length = 270  # Min pulse length out of 4096
 
 # LED strip configuration:
 LED_COUNT      = 12      # Number of LED pixels.
@@ -53,6 +61,17 @@ PUSH_BUTTON_A = 6  # GPIO pin for Push Button A (other end to GND)
 PUSH_BUTTON_B = 13 # GPIO pin for Push Button B (other end to GND)
 PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
 PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
+
+# Helper function to make setting a servo pulse width simpler.
+def set_servo_pulse(channel, pulse):
+    pulse_length = 1000000    # 1,000,000 us per second
+    pulse_length //= 60       # 60 Hz
+    print('{0}us per period'.format(pulse_length))
+    pulse_length //= 4096     # 12 bits of resolution
+    print('{0}us per bit'.format(pulse_length))
+    pulse *= 1000
+    pulse //= pulse_length
+    pwm.set_pwm(channel, 0, pulse)
 
 # Define functions to change the display on screen
 def changeScreenText(draw, font, line1, line2, line3, line4):
@@ -188,6 +207,10 @@ if __name__ == '__main__':
     print ('Garth and Jason made this super fancy ')
     print ('Alexa Powered Pi Vending App that is running')
     print ('Press Ctrl-C to quit.')
+    # Initialise the PCA9685 using the default address (0x40) and I2C bus for the PI2.
+    pwm = Adafruit_PCA9685.PCA9685(address=0x40, busnum=1)
+    # Set frequency to 60hz, good for servos.
+    pwm.set_pwm_freq(60)
     # Loop
     while True:
         # Flip back to white lights after the button action has run
@@ -209,6 +232,8 @@ if __name__ == '__main__':
             for t in range (0, 10,1):
                 nightrider(strip, Color(0,0,255), 65)
             time.sleep(0.2)
+            # Move servo on channel O.
+            pwm.set_pwm(0, 0, servo_length)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "  VENDING", "  MACHINE")
         # B Button    
