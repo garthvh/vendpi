@@ -14,8 +14,6 @@
 # TM1803 LEDs https://github.com/jgarff/rpi_ws281x
 #
 #
-
-from __future__ import division
 import time
 
 # NeoPixel for LEDs
