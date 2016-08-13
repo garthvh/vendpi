@@ -34,7 +34,7 @@ import RPi.GPIO as GPIO
 import Adafruit_PCA9685
 
 # Configure servo pulse length
-servo_length = 150  # Min pulse length out of 4096
+servo_length = 270  # Min pulse length out of 4096
 
 # LED strip configuration:
 LED_COUNT      = 12      # Number of LED pixels.
@@ -222,6 +222,7 @@ if __name__ == '__main__':
             # Move servo on channel O.
             pwm.set_pwm(0, 0, servo_length)
             time.sleep(1)
+            # Stop moving servo
             pwm.set_pwm(0, 0, 0)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "  VENDING", "  MACHINE")
@@ -240,6 +241,11 @@ if __name__ == '__main__':
             rainbowCycle(strip)
             theaterChaseRainbow(strip)
             time.sleep(0.2)
+            # Move servo on channel 1.
+            pwm.set_pwm(1, 0, servo_length)
+            time.sleep(1)
+            # Stop moving servo
+            pwm.set_pwm(1, 0, 0)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
         # C Button      
@@ -250,6 +256,11 @@ if __name__ == '__main__':
             rainbow(strip)
             rainbowCycle(strip)
             time.sleep(0.2)
+            # Move servo on channel 2.
+            pwm.set_pwm(2, 0, servo_length)
+            time.sleep(1)
+            # Stop moving servo
+            pwm.set_pwm(2, 0, 0)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
         # D Button      
@@ -263,5 +274,10 @@ if __name__ == '__main__':
             theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
             theaterChaseRainbow(strip)
             time.sleep(0.2)
+            # Move servo on channel 3.
+            pwm.set_pwm(3, 0, servo_length)
+            time.sleep(1)
+            # Stop moving servo
+            pwm.set_pwm(3, 0, 0)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
