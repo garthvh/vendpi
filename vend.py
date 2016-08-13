@@ -15,7 +15,7 @@
 #
 #
 
-from __future__ import division
+#from __future__ import division
 import time
 
 # NeoPixel for LEDs
@@ -64,13 +64,13 @@ PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 
 # Helper function to make setting a servo pulse width simpler.
 def set_servo_pulse(channel, pulse):
-    pulse_length = 1000000    # 1,000,000 us per second
-    pulse_length //= 60       # 60 Hz
-    print('{0}us per period'.format(pulse_length))
-    pulse_length //= 4096     # 12 bits of resolution
-    print('{0}us per bit'.format(pulse_length))
+    #pulse_length = 1000000    # 1,000,000 us per second
+    pulse_length = 60       # 60 Hz
+    #print('{0}us per period'.format(pulse_length))
+    #pulse_length //= 4096     # 12 bits of resolution
+    #print('{0}us per bit'.format(pulse_length))
     pulse *= 1000
-    pulse //= pulse_length
+    pulse = pulse_length
     pwm.set_pwm(channel, 0, pulse)
 
 # Define functions to change the display on screen
