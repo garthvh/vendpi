@@ -222,6 +222,7 @@ if __name__ == '__main__':
             # Move servo on channel O.
             pwm.set_pwm(0, 0, servo_length)
             time.sleep(1)
+            pwm.set_pwm(0, 0, 0)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "  VENDING", "  MACHINE")
         # B Button    
