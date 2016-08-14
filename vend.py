@@ -298,4 +298,6 @@ if __name__ == '__main__':
             print('Shutdown Button Pressed')
             # Write some text
             changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
+            #Turn off the lights
+            colorWipe(strip, Color(0, 0, 0))  # Black wipe
             shutdown()
