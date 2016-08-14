@@ -59,6 +59,16 @@ PUSH_BUTTON_A = 6  # GPIO pin for Push Button A (other end to GND)
 PUSH_BUTTON_B = 13 # GPIO pin for Push Button B (other end to GND)
 PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
 PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
+PUSH_BUTTON_HALT = 16 # GPIO pin for Push Button D (other end to GND)
+
+Python 
+
+def shutdown():
+    command = "/usr/bin/sudo /sbin/shutdown -h now"
+    import subprocess
+    process = subprocess.Popen(command.split(), stdout=subprocess.PIPE)
+    output = process.communicate()[0]
+    print output
 
 # Define functions to change the display on screen
 def changeScreenText(draw, font, line1, line2, line3, line4):
@@ -169,6 +179,7 @@ if __name__ == '__main__':
     GPIO.setup(PUSH_BUTTON_B, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(PUSH_BUTTON_C, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     GPIO.setup(PUSH_BUTTON_D, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+    GPIO.setup(PUSH_BUTTON_HALT, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     # Set Width and Height Variables
     LCD_WIDTH = LCD.LCDWIDTH
     LCD_HEIGHT = LCD.LCDHEIGHT
@@ -208,6 +219,7 @@ if __name__ == '__main__':
         button_b_state = GPIO.input(PUSH_BUTTON_B)
         button_c_state = GPIO.input(PUSH_BUTTON_C)
         button_d_state = GPIO.input(PUSH_BUTTON_D)
+        button_halt_state = GPIO.input(PUSH_BUTTON_HALT)
         # A Button
         if button_a_state == False:
             print('Button A Pressed')
@@ -279,5 +291,12 @@ if __name__ == '__main__':
             time.sleep(1)
             # Stop moving servo
             pwm.set_pwm(3, 0, 0)
+            # Load Initial Text after everything has run
+            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
+                # D Button      
+        if button_halt_state == False:
+            print('Shutdown Button Pressed')
+            # Write some text
+            changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
