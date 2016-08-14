@@ -214,7 +214,7 @@ if __name__ == '__main__':
         pwm.set_pwm_freq(60)
     
     else:
-        break
+        # Do nothing shutting down
     # Loop
     while True:
         # Flip back to white lights after the button action has run
