@@ -170,48 +170,48 @@ def nightrider(stick, color, wait_ms=70):
 if __name__ == '__main__':
 
     if SHUTTING_DOWN == false:
-    ###  Stuff You Do Once  ###
-    # Create NeoPixel object with appropriate configuration.
-    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
-    # Intialize the library (must be called once before other functions).
-    strip.begin()
-    # Set GPIO mode
-    GPIO.setmode(GPIO.BCM)
-    # Setup with Pull Up for Push Button Pins
-    GPIO.setup(PUSH_BUTTON_A, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(PUSH_BUTTON_B, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(PUSH_BUTTON_C, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(PUSH_BUTTON_D, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    GPIO.setup(PUSH_BUTTON_HALT, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-    # Set Width and Height Variables
-    LCD_WIDTH = LCD.LCDWIDTH
-    LCD_HEIGHT = LCD.LCDHEIGHT
-    # Start the Nokia Screen using Hardware SPI:
-    disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
-    # Initialize library.
-    disp.begin(contrast=45)
-    # Load a tt font find more fonts at: http://www.dafont.com/bitmap.php	
-    # ImageFont.load_default()
-    font = ImageFont.truetype('fonts/DroidSansMono.ttf', 12) 
-    # Create Empty Image Object
-    image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
-    # Create a drawing object
-    draw = ImageDraw.Draw(image)
-    # Load Initial Text
-    changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
-    # Flash Some Colors on the LEDs
-    colorWipe(strip, Color(255, 0, 0))      # Red wipe
-    colorWipe(strip, Color(255, 255, 255))  # White wipe
-    colorWipe(strip, Color(0, 255, 0))      # Blue wipe
-    colorWipe(strip, Color(0, 0, 255))      # Green wipe
-    # Print Some text and button pushs to the console
-    print ('Garth and Jason made this super fancy ')
-    print ('Alexa Powered Pi Vending App that is running')
-    print ('Press Ctrl-C to quit.')
-    # Initialise the PCA9685 using the default address (0x40) and I2C bus for the PI2.
-    pwm = Adafruit_PCA9685.PCA9685(address=0x40, busnum=1)
-    # Set frequency to 60hz, good for servos.
-    pwm.set_pwm_freq(60)
+        ###  Stuff You Do Once  ###
+        # Create NeoPixel object with appropriate configuration.
+        strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
+        # Intialize the library (must be called once before other functions).
+        strip.begin()
+        # Set GPIO mode
+        GPIO.setmode(GPIO.BCM)
+        # Setup with Pull Up for Push Button Pins
+        GPIO.setup(PUSH_BUTTON_A, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(PUSH_BUTTON_B, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(PUSH_BUTTON_C, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(PUSH_BUTTON_D, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        GPIO.setup(PUSH_BUTTON_HALT, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+        # Set Width and Height Variables
+        LCD_WIDTH = LCD.LCDWIDTH
+        LCD_HEIGHT = LCD.LCDHEIGHT
+        # Start the Nokia Screen using Hardware SPI:
+        disp = LCD.PCD8544(DC, RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=4000000))
+        # Initialize library.
+        disp.begin(contrast=45)
+        # Load a tt font find more fonts at: http://www.dafont.com/bitmap.php	
+        # ImageFont.load_default()
+        font = ImageFont.truetype('fonts/DroidSansMono.ttf', 12) 
+        # Create Empty Image Object
+        image = Image.new('1', (LCD_WIDTH, LCD_HEIGHT))
+        # Create a drawing object
+        draw = ImageDraw.Draw(image)
+        # Load Initial Text
+        changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
+        # Flash Some Colors on the LEDs
+        colorWipe(strip, Color(255, 0, 0))      # Red wipe
+        colorWipe(strip, Color(255, 255, 255))  # White wipe
+        colorWipe(strip, Color(0, 255, 0))      # Blue wipe
+        colorWipe(strip, Color(0, 0, 255))      # Green wipe
+        # Print Some text and button pushs to the console
+        print ('Garth and Jason made this super fancy ')
+        print ('Alexa Powered Pi Vending App that is running')
+        print ('Press Ctrl-C to quit.')
+        # Initialise the PCA9685 using the default address (0x40) and I2C bus for the PI2.
+        pwm = Adafruit_PCA9685.PCA9685(address=0x40, busnum=1)
+        # Set frequency to 60hz, good for servos.
+        pwm.set_pwm_freq(60)
     
     else:
         break
