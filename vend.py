@@ -61,8 +61,8 @@ PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
 PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 PUSH_BUTTON_HALT = 16 # GPIO pin for Push Button D (other end to GND)
 
-Python 
 
+# Shutdown Function
 def shutdown():
     command = "/usr/bin/sudo /sbin/shutdown -h now"
     import subprocess
