@@ -293,10 +293,9 @@ if __name__ == '__main__':
             pwm.set_pwm(3, 0, 0)
             # Load Initial Text after everything has run
             changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
-                # D Button      
+            # Halt Button      
         if button_halt_state == False:
             print('Shutdown Button Pressed')
             # Write some text
             changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
-            # Load Initial Text after everything has run
-            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
+            shutdown()
