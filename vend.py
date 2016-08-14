@@ -300,4 +300,5 @@ if __name__ == '__main__':
             changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
             #Turn off the lights
             colorWipe(strip, Color(0, 0, 0))  # Black wipe
+            time.sleep(1)
             shutdown()
