@@ -308,7 +308,8 @@ if __name__ == '__main__':
                     strip.show()
                 print('Lights should be off')
                 MACHINE_STATUS = 'SHUTTING DOWN'
-                time.sleep(1.5)
+                shutdown()
+                time.sleep(10)
                 
     else:
         print('Do nothing shutting down')
