@@ -213,101 +213,102 @@ if __name__ == '__main__':
         # Set frequency to 60hz, good for servos.
         pwm.set_pwm_freq(60)
     
+        # Loop
+        while True:
+            # Flip back to white lights after the button action has run
+            colorWipe(strip, Color(255, 255, 255))   # White wipe
+            
+            # Button States        
+            button_a_state = GPIO.input(PUSH_BUTTON_A)
+            button_b_state = GPIO.input(PUSH_BUTTON_B)
+            button_c_state = GPIO.input(PUSH_BUTTON_C)
+            button_d_state = GPIO.input(PUSH_BUTTON_D)
+            button_halt_state = GPIO.input(PUSH_BUTTON_HALT)
+            # A Button
+            if button_a_state == False:
+                print('Button A Pressed')
+                # Write some text
+                changeScreenText(draw, font, "YOU PRESSED", "BUTTON A", "ENJOY THE", "CYLON")
+                # Night Rider / Cylon
+                for t in range (0, 10,1):
+                    nightrider(strip, Color(255,0,0), 65)
+                for t in range (0, 10,1):
+                    nightrider(strip, Color(0,0,255), 65)
+                time.sleep(0.2)
+                # Move servo on channel O.
+                pwm.set_pwm(0, 0, servo_length)
+                time.sleep(1)
+                # Stop moving servo
+                pwm.set_pwm(0, 0, 0)
+                # Load Initial Text after everything has run
+                changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "  VENDING", "  MACHINE")
+            # B Button    
+            if button_b_state == False:
+                print('Button B Pressed')
+                # Button Box Size Variables
+                box_width = ((LCD.LCDWIDTH / 2) -4)
+                box_height = ((LCD.LCDHEIGHT / 2) -4)
+                # Write some text
+                changeScreenText(draw, font, "YOU PRESSED", "BUTTON B", "ENJOY THE", "RAINBOWS")
+                # Draw Button Images
+                # A Button 2,2,22,22
+                #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
+                rainbow(strip)
+                rainbowCycle(strip)
+                theaterChaseRainbow(strip)
+                time.sleep(0.2)
+                # Move servo on channel 1.
+                pwm.set_pwm(1, 0, servo_length)
+                time.sleep(1)
+                # Stop moving servo
+                pwm.set_pwm(1, 0, 0)
+                # Load Initial Text after everything has run
+                changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
+            # C Button      
+            if button_c_state == False:
+                print('Button C Pressed')
+                # Write some text
+                changeScreenText(draw, font, "YOU PRESSED", "BUTTON C", "ENJOY THE", "RBW CYCLE")
+                rainbow(strip)
+                rainbowCycle(strip)
+                time.sleep(0.2)
+                # Move servo on channel 2.
+                pwm.set_pwm(2, 0, servo_length)
+                time.sleep(1)
+                # Stop moving servo
+                pwm.set_pwm(2, 0, 0)
+                # Load Initial Text after everything has run
+                changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
+            # D Button      
+            if button_d_state == False:
+                print('Button D Pressed')
+                # Write some text
+                changeScreenText(draw, font, "YOU PRESSED", "BUTTON D", "ENJOY THE RBW", "THEATER CHASE")
+                # Theater chase animations.
+                theaterChase(strip, Color(127,   0,   0))  # Red theater chase
+                theaterChase(strip, Color(127, 127, 127))  # White theater chase
+                theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
+                theaterChaseRainbow(strip)
+                time.sleep(0.2)
+                # Move servo on channel 3.
+                pwm.set_pwm(3, 0, servo_length)
+                time.sleep(1)
+                # Stop moving servo
+                pwm.set_pwm(3, 0, 0)
+                # Load Initial Text after everything has run
+                changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
+                # Halt Button      
+            if button_halt_state == False:
+                print('Shutdown Button Pressed')
+                # Write some text
+                changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
+                #Turn off the lights
+                for i in range(strip.numPixels()):
+                    strip.setPixelColor(i, Color(0, 0, 0))
+                    strip.show()
+                print('Lights should be off')
+                SHUTTING_DOWN = true
+                time.sleep(1.5)
+                
     else:
-        # Do nothing shutting down
-    # Loop
-    while True:
-        # Flip back to white lights after the button action has run
-        colorWipe(strip, Color(255, 255, 255))   # White wipe
-        
-        # Button States        
-        button_a_state = GPIO.input(PUSH_BUTTON_A)
-        button_b_state = GPIO.input(PUSH_BUTTON_B)
-        button_c_state = GPIO.input(PUSH_BUTTON_C)
-        button_d_state = GPIO.input(PUSH_BUTTON_D)
-        button_halt_state = GPIO.input(PUSH_BUTTON_HALT)
-        # A Button
-        if button_a_state == False:
-            print('Button A Pressed')
-            # Write some text
-            changeScreenText(draw, font, "YOU PRESSED", "BUTTON A", "ENJOY THE", "CYLON")
-            # Night Rider / Cylon
-            for t in range (0, 10,1):
-                nightrider(strip, Color(255,0,0), 65)
-            for t in range (0, 10,1):
-                nightrider(strip, Color(0,0,255), 65)
-            time.sleep(0.2)
-            # Move servo on channel O.
-            pwm.set_pwm(0, 0, servo_length)
-            time.sleep(1)
-            # Stop moving servo
-            pwm.set_pwm(0, 0, 0)
-            # Load Initial Text after everything has run
-            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "  VENDING", "  MACHINE")
-        # B Button    
-        if button_b_state == False:
-            print('Button B Pressed')
-            # Button Box Size Variables
-            box_width = ((LCD.LCDWIDTH / 2) -4)
-            box_height = ((LCD.LCDHEIGHT / 2) -4)
-            # Write some text
-            changeScreenText(draw, font, "YOU PRESSED", "BUTTON B", "ENJOY THE", "RAINBOWS")
-            # Draw Button Images
-            # A Button 2,2,22,22
-            #draw.rectangle((2,2, box_width, box_height), outline=0, fill=255)
-            rainbow(strip)
-            rainbowCycle(strip)
-            theaterChaseRainbow(strip)
-            time.sleep(0.2)
-            # Move servo on channel 1.
-            pwm.set_pwm(1, 0, servo_length)
-            time.sleep(1)
-            # Stop moving servo
-            pwm.set_pwm(1, 0, 0)
-            # Load Initial Text after everything has run
-            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
-        # C Button      
-        if button_c_state == False:
-            print('Button C Pressed')
-            # Write some text
-            changeScreenText(draw, font, "YOU PRESSED", "BUTTON C", "ENJOY THE", "RBW CYCLE")
-            rainbow(strip)
-            rainbowCycle(strip)
-            time.sleep(0.2)
-            # Move servo on channel 2.
-            pwm.set_pwm(2, 0, servo_length)
-            time.sleep(1)
-            # Stop moving servo
-            pwm.set_pwm(2, 0, 0)
-            # Load Initial Text after everything has run
-            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
-        # D Button      
-        if button_d_state == False:
-            print('Button D Pressed')
-            # Write some text
-            changeScreenText(draw, font, "YOU PRESSED", "BUTTON D", "ENJOY THE RBW", "THEATER CHASE")
-            # Theater chase animations.
-            theaterChase(strip, Color(127,   0,   0))  # Red theater chase
-            theaterChase(strip, Color(127, 127, 127))  # White theater chase
-            theaterChase(strip, Color(  0,   0, 127))  # Blue theater chase
-            theaterChaseRainbow(strip)
-            time.sleep(0.2)
-            # Move servo on channel 3.
-            pwm.set_pwm(3, 0, servo_length)
-            time.sleep(1)
-            # Stop moving servo
-            pwm.set_pwm(3, 0, 0)
-            # Load Initial Text after everything has run
-            changeScreenText(draw, font, " ALEXA & PI", "TRIVIA SKILL", "   VENDING", "   MACHINE")
-            # Halt Button      
-        if button_halt_state == False:
-            print('Shutdown Button Pressed')
-            # Write some text
-            changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
-            #Turn off the lights
-            for i in range(strip.numPixels()):
-		        strip.setPixelColor(i, Color(0, 0, 0))
-		        strip.show()
-            print('Lights should be off')
-            SHUTTING_DOWN = true
-            time.sleep(1.5)
+    # Do nothing shutting down
