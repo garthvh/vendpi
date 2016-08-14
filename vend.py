@@ -61,6 +61,8 @@ PUSH_BUTTON_C = 19 # GPIO pin for Push Button C (other end to GND)
 PUSH_BUTTON_D = 26 # GPIO pin for Push Button D (other end to GND)
 PUSH_BUTTON_HALT = 16 # GPIO pin for Push Button D (other end to GND)
 
+SHUTTING_DOWN = false;
+
 
 # Shutdown Function
 def shutdown():
@@ -167,6 +169,7 @@ def nightrider(stick, color, wait_ms=70):
 # Main program logic follows:
 if __name__ == '__main__':
 
+    if SHUTTING_DOWN == false:
     ###  Stuff You Do Once  ###
     # Create NeoPixel object with appropriate configuration.
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
@@ -209,6 +212,9 @@ if __name__ == '__main__':
     pwm = Adafruit_PCA9685.PCA9685(address=0x40, busnum=1)
     # Set frequency to 60hz, good for servos.
     pwm.set_pwm_freq(60)
+    
+    else:
+        break
     # Loop
     while True:
         # Flip back to white lights after the button action has run
@@ -303,4 +309,5 @@ if __name__ == '__main__':
 		        strip.setPixelColor(i, Color(0, 0, 0))
 		        strip.show()
             print('Lights should be off')
+            SHUTTING_DOWN = true
             time.sleep(1.5)
