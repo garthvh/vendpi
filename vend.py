@@ -301,7 +301,7 @@ if __name__ == '__main__':
             if button_halt_state == False:
                 print('Shutdown Button Pressed')
                 # Write some text
-                changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
+                changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "           ", "GOODBYE")
                 #Turn off the lights
                 for i in range(strip.numPixels()):
                     strip.setPixelColor(i, Color(0, 0, 0))
