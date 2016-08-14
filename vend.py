@@ -299,6 +299,8 @@ if __name__ == '__main__':
             # Write some text
             changeScreenText(draw, font, "YOU PRESSED", "BTN SHUTDOWN", "SHUTTING DOWN", "GOODBYE")
             #Turn off the lights
-            colorWipe(strip, Color(0, 0, 0))      # Black wipe
+            for i in range(strip.numPixels()):
+		        strip.setPixelColor(i, Color(0, 0, 0))
+		        strip.show()
             print('Lights should be off')
             time.sleep(1.5)
